@@ -1,0 +1,74 @@
+using System;
+
+class Calculadora
+{
+    public static string RetornarOperador()
+    {
+        Console.Write("Digite o operador (+, -, *, /): ");
+        return Console.ReadLine();
+    }
+    public static double RetornarValor()
+    {
+        Console.Write("Digite um número: ");
+        return double.Parse(Console.ReadLine());
+    }
+
+    public static double Soma(double a, double b)
+    {
+        return a + b;
+    }
+
+    public static double Subtracao(double a, double b)
+    {
+        return a - b;
+    }
+
+    public static double Multiplicacao(double a, double b)
+    {
+        return a * b;
+    }
+
+    public static double Divisao(double a, double b)
+    {
+        if (b == 0)
+        {
+            Console.WriteLine("Erro: divisão por zero!");
+            return 0;
+        }
+        return a / b;
+    }
+
+    public static void Calcular()
+    {
+        string operador = RetornarOperador();
+        double valor1 = RetornarValor();
+        double valor2 = RetornarValor();
+        double resultado = 0;
+
+        switch (operador)
+        {
+            case "+":
+                resultado = Soma(valor1, valor2);
+                break;
+            case "-":
+                resultado = Subtracao(valor1, valor2);
+                break;
+            case "*":
+                resultado = Multiplicacao(valor1, valor2);
+                break;
+            case "/":
+                resultado = Divisao(valor1, valor2);
+                break;
+            default:
+                Console.WriteLine("Operador inválido!");
+                return;
+        }
+
+        Console.WriteLine("Resultado: " + resultado);
+    }
+
+    static void Main(string[] args)
+    {
+        Calcular();
+    }
+}
