@@ -1,0 +1,65 @@
+using System;
+class Calculadora
+{
+    public static string ReturnOperator()
+    {
+        Console.WriteLine("Digite um operador (+,-,*,/)");
+        return Console.ReadLine();
+    }
+     public static float ReturnValue()
+    {
+        Console.WriteLine("digite um número:");
+        return float.Parse(Console.ReadLine());
+    }
+
+    public static float Sum(float a, float b)
+    {
+        return a+ b;
+    }
+    public static float Subtract(float a, float b)
+    {
+        return a - b;
+    }
+    public static float Multiply(float a, float b)
+    {
+        return a * b;
+    }
+    public static float divide(float a, float b)
+    {
+        return a / b;
+    }
+    public static void Calculate()
+    {
+        string operato = ReturnOperator();
+        float value1 = ReturnValue();
+        float value2 = ReturnValue();
+        float result = 0;
+
+        switch (operato) {
+            case "+":
+
+                result = Sum(value1, value2);
+                break;
+            case "-":
+
+                result = Subtract(value1, value2);
+                break;
+            case "*":
+                result = Multiply(value1, value2);
+                break;
+            case "/":
+                result = divide(value1, value2);
+                break;
+            default:
+                Console.WriteLine("Operador Inválido!");
+                return;
+
+        }
+
+        Console.WriteLine("Resultado" + result);   
+       
+    }
+    static void Main(string[] args) {
+        Calculate();
+    }
+}
